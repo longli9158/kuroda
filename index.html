@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エンジニアAWS共育</title>
+    <link rel="stylesheet" href="styles.css"> <!-- CSSファイルのリンク -->
+</head>
+<body>
+    <header>
+        <h1>エンジニアAWS共育</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#profile">プロフィール</a></li>
+                <li><a href="#events">イベント</a></li>
+                <li><a href="#certifications">認定プログラム</a></li>
+                <li><a href="#community">コミュニティ</a></li>
+                <li><a href="#logout">ログアウト</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="welcome">
+            <h2>ようこそ、エンジニアAWS共育へ！</h2>
+            <p>AWSエンジニアのためのコミュニティアプリへようこそ！ここでは、最新の技術記事や実践的なチュートリアルを閲覧できます。</p>
+            <!-- 他のコンテンツを追加 -->
+        </section>
+
+        <section id="custom-feed">
+            <h2>カスタムフィード</h2>
+            <p>アプリに登録すると、あなたの興味やスキルに合わせたコンテンツを提供します。</p>
+            <!-- カスタムフィードのコンテンツを表示 -->
+        </section>
+
+        <section id="events">
+            <h2>オフラインイベント</h2>
+            <p>定期的に開催されるオフラインイベントへの参加登録もアプリから簡単に行えます。</p>
+            <!-- イベント情報の表示 -->
+        </section>
+
+        <!-- 他のセクションを追加 -->
+    </main>
+
+    <footer>
+        <p>エンジニアAWS共育アプリで、エンジニアの成長とコミュニティの発展を一緒に実現しましょう！</p>
+        <a href="https://bit.ly/J_Umma">Get Access Now</a>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+/* ページ全体のスタイル */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.container {
+    max-width: 400px;
+    margin: 100px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h1 {
+    color: #007bff;
+}
+
+/* フォーム要素のスタイル */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.remember-me {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* リンクのスタイル */
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* レスポンシブデザイン */
+@media screen and (max-width: 480px) {
+    .container {
+        margin: 50px auto;
+    }
+}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- head部分のコードは省略 -->
+</head>
+<body>
+    <div class="container">
+        <h1>エンジニアAWS共育</h1>
+        <h2>ログイン</h2>
+        <form id="loginForm">
+            <label for="username">ユーザー名またはメールアドレス</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">パスワード</label>
+            <input type="password" id="password" name="password" required>
+
+            <div class="remember-me">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">ログイン情報を記憶する</label>
+            </div>
+
+            <button type="submit">ログイン</button>
+        </form>
+
+        <div class="signup-link">
+            <a href="signup.html">新規登録の方はこちら</a>
+        </div>
+
+        <div class="forgot-password-link">
+            <a href="forgot_password.html">パスワードを忘れた方</a>
+        </div>
+    </div>
+
+    <script>
+        // フォームの送信処理と認証機能の実装
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // デフォルトのフォーム送信をキャンセル
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const rememberMe = document.getElementById('remember').checked;
+
+            // サーバーサイドでの認証処理を実行
+            // 以下はサンプルの仮想的な認証処理
+            if (username === 'user123' && password === 'password123') {
+                // 認証成功時の処理（例：ログイン成功後のページにリダイレクト）
+                alert('ログイン成功！');
+                window.location.href = 'dashboard.html'; // ログイン成功後のページにリダイレクト
+            } else {
+                // 認証失敗時の処理（例：エラーメッセージの表示）
+                alert('ユーザー名またはパスワードが正しくありません。');
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- head部分のコードは省略 -->
+</head>
+<body>
+    <div class="container">
+        <h1>エンジニアAWS共育</h1>
+        <h2>ログイン</h2>
+        <form id="loginForm">
+            <!-- フォーム要素のコードは省略 -->
+        </form>
+
+        <div class="social-buttons">
+            <!-- ソーシャルメディア連携ボタン -->
+            <button id="twitterButton">Twitterアカウントでログイン</button>
+            <button id="googleButton">Googleアカウントでログイン</button>
+            <button id="qiitaButton">Qiitaアカウントでログイン</button>
+        </div>
+
+        <div class="signup-link">
+            <a href="signup.html">新規登録の方はこちら</a>
+        </div>
+
+        <div class="forgot-password-link">
+            <a href="forgot_password.html">パスワードを忘れた方</a>
+        </div>
+    </div>
+
+    <script>
+        // ソーシャルメディア連携ボタンのクリックイベントの処理
+        const twitterButton = document.getElementById('twitterButton');
+        const googleButton = document.getElementById('googleButton');
+        const qiitaButton = document.getElementById('qiitaButton');
+
+        twitterButton.addEventListener('click', function() {
+            // Twitterアカウントとの連携処理（仮想的なダミー処理）
+            alert('Twitterアカウントと連携しました！');
+            // ここにTwitterアカウントの認証プロセスを実装する必要があります
+        });
+
+        googleButton.addEventListener('click', function() {
+            // Googleアカウントとの連携処理（仮想的なダミー処理）
+            alert('Googleアカウントと連携しました！');
+            // ここにGoogleアカウントの認証プロセスを実装する必要があります
+        });
+
+        qiitaButton.addEventListener('click', function() {
+            // Qiitaアカウントとの連携処理（仮想的なダミー処理）
+            alert('Qiitaアカウントと連携しました！');
+            // ここにQiitaアカウントの認証プロセスを実装する必要があります
+        });
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エンジニアAWS共育</title>
+    <style>
+        body {
+            background-color: #f2f2f2; /* 淡いグレーの背景色 */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #232f3e; /* AWSのイメージカラーをアクセントとして使用 */
+            color: #ffffff; /* ヘッダーテキストの色を白に設定 */
+            padding: 10px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #232f3e; /* AWSのイメージカラーをアクセントとして使用 */
+            color: #ffffff; /* フッターテキストの色を白に設定 */
+            padding: 10px;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .container {
+            /* コンテンツを中央に配置するスタイル */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* 画面全体の高さいっぱいに表示 */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>エンジニアAWS共育</h1>
+    </header>
+
+    <div class="container">
+        <!-- ここにアプリケーションのコンテンツが表示されます -->
+    </div>
+
+    <footer>
+        <p>© 2023 エンジニアAWS共育. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エンジニアAWS共育</title>
+    <style>
+        body {
+            background-color: #f2f2f2; /* 背景色を淡いグレーに設定 */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #232f3e; /* ヘッダーの背景色をAWSのイメージカラーに設定 */
+            color: #ffffff; /* ヘッダーテキストの色を白に設定 */
+            padding: 10px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 36px; /* ロゴのテキストのフォントサイズを指定 */
+            font-weight: bold; /* ロゴのテキストの太さを指定 */
+            color: #0078d4; /* ロゴのテキストの色をAWSのイメージカラーに設定 */
+        }
+
+        .container {
+            /* コンテンツを中央に配置するスタイル */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* 画面全体の高さいっぱいに表示 */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">エンジニアAWS共育</h1>
+    </header>
+
+    <div class="container">
+        <!-- ここにアプリケーションのコンテンツが表示されます -->
+    </div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エンジニアAWS共育</title>
+    <style>
+        body {
+            background-color: #f2f2f2; /* 背景色を淡いグレーに設定 */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #232f3e; /* ヘッダーの背景色をAWSのイメージカラーに設定 */
+            color: #ffffff; /* ヘッダーテキストの色を白に設定 */
+            padding: 10px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 36px; /* ロゴのテキストのフォントサイズを指定 */
+            font-weight: bold; /* ロゴのテキストの太さを指定 */
+            color: #0078d4; /* ロゴのテキストの色をAWSのイメージカラーに設定 */
+        }
+
+        .welcome-message {
+            font-size: 24px; /* ウェルカムメッセージのフォントサイズを指定 */
+            margin-top: 30px; /* ウェルカムメッセージの上マージンを指定 */
+            text-align: center;
+        }
+
+        .feed {
+            margin-top: 20px; /* フィードの上マージンを指定 */
+            width: 100%; /* フィードの幅を100%に指定 */
+        }
+
+        .post {
+            background-color: #ffffff; /* コンテンツカードの背景色を白に設定 */
+            border: 1px solid #dcdcdc; /* コンテンツカードに枠線を指定 */
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px; /* コンテンツカードの角を丸くする */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 影をつける */
+        }
+
+        .post-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .post-content {
+            margin-top: 5px;
+        }
+
+        .container {
+            /* コンテンツを中央に配置するスタイル */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* 画面全体の高さいっぱいに表示 */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">エンジニアAWS共育</h1>
+    </header>
+
+    <div class="container">
+        <div class="welcome-message">
+            <p>ようこそ、エンジニアAWS共育へ！</p>
+        </div>
+
+        <div class="feed">
+            <!-- フィードにカスタムコンテンツを表示するためのサンプルコード -->
+            <div class="post">
+                <h2 class="post-title">AWS Lambdaの使い方</h2>
+                <p class="post-content">AWS Lambdaを活用したサーバーレスアーキテクチャの基本と利用方法を解説します。</p>
+            </div>
+
+            <div class="post">
+                <h2 class="post-title">Amazon S3の使い方</h2>
+                <p class="post-content">Amazon S3を使用して静的ウェブサイトをホスティングする手順を詳しく解説します。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エンジニアAWS共育 - ログイン</title>
+    <style>
+        body {
+            background-color: #f2f2f2; /* 背景色を淡いグレーに設定 */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #232f3e; /* ヘッダーの背景色をAWSのイメージカラーに設定 */
+            color: #ffffff; /* ヘッダーテキストの色を白に設定 */
+            padding: 10px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 36px; /* ロゴのテキストのフォントサイズを指定 */
+            font-weight: bold; /* ロゴのテキストの太さを指定 */
+            color: #0078d4; /* ロゴのテキストの色をAWSのイメージカラーに設定 */
+        }
+
+        .login-form {
+            margin-top: 30px; /* フォームの上マージンを指定 */
+            max-width: 400px; /* フォームの幅を最大400pxに指定 */
+            padding: 20px;
+            background-color: #ffffff; /* フォームの背景色を白に設定 */
+            border: 1px solid #dcdcdc; /* フォームに枠線を指定 */
+            border-radius: 5px; /* フォームの角を丸くする */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 影をつける */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #dcdcdc;
+            border-radius: 5px;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .social-button {
+            padding: 10px;
+            border: 1px solid #dcdcdc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .container {
+            /* コンテンツを中央に配置するスタイル */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* 画面全体の高さいっぱいに表示 */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">エンジニアAWS共育</h1>
+    </header>
+
+    <div class="container">
+        <form class="login-form">
+            <div class="form-group">
+                <label for="username">ユーザー名またはメールアドレス</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">パスワード</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="social-buttons">
+                <div class="social-button" onclick="loginWithTwitter()">Twitterでログイン</div>
+                <div class="social-button" onclick="loginWithGoogle()">Googleでログイン</div>
+                <div class="social-button" onclick="loginWithQiita()">Qiitaでログイン</div>
+            </div>
+
+            <button type="submit">ログイン</button>
+        </form>
+    </div>
+</body>
+</html>
